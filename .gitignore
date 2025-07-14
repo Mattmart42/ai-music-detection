@@ -1,0 +1,33 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Audio and Spectrogram files (keep them local, don't track them)
+data/
+spectrograms/
+
+# Model checkpoints and logs
+models/
+logs/
+*.ckpt
+*.pt
+*.pth
+
+# Temporary files
+*.tmp
+*.log
+
+# VSCode config (if you use VSCode)
+.vscode/

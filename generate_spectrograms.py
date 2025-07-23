@@ -17,7 +17,7 @@ def save_mel_spectrogram(audio_path, output_path):
     plt.close()
 
 for label in ['real', 'ai']:
-    input_dir = f'data/{label}'
+    input_dir = f'data_clean/{label}'
     output_dir = f'spectrograms/{label}'
     os.makedirs(output_dir, exist_ok=True)
 

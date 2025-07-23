@@ -16,6 +16,7 @@ Thumbs.db
 
 # Audio and Spectrogram files (keep them local, don't track them)
 data/
+data_clean/
 spectrograms/
 
 # Model checkpoints and logs

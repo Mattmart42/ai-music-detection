@@ -7,21 +7,28 @@ img_height, img_width = 224, 224
 batch_size = 16
 
 train_ds  = tf.keras.preprocessing.image_dataset_from_directory(
-  "../spectrograms",
-  validation_split=0.3,
-  subset="training",
-  seed=42,
+  "../spectrograms/train",
+  # validation_split=0.3,
+  # subset="training",
+  # seed=42,
   image_size=(img_height, img_width),
   batch_size=batch_size
 )
 
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
-  "../spectrograms",
-  validation_split=0.3,
-  subset="validation",
-  seed=42,
+  "../spectrograms/val",
+  # validation_split=0.3,
+  # subset="validation",
+  # seed=42,
   image_size=(img_height, img_width),
   batch_size=batch_size
+)
+
+test_ds = tf.keras.preprocessing.image_dataset_from_directory(
+  "../spectrograms/test",
+  image_size=(img_height, img_width),
+  batch_size=batch_size,
+  shuffle=False
 )
 
 model = models.Sequential([
@@ -65,5 +72,8 @@ plt.show()
 
 loss, accuracy = model.evaluate(val_ds)
 print(f"Validation accuracy: {accuracy:.4f}")
+
+test_loss, test_acc = model.evaluate(test_ds)
+print(f"Final test accuracy: {test_acc:.4f}")
 
 model.save('../models/spectrogram_classifier.keras')

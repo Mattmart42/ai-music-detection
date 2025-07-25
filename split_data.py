@@ -32,4 +32,4 @@ def split_folder(src_folder, dst_root, splits=(0.7,0.2,0.1), seed=42):
 
 # run for both classes
 for label in ['ai','real']:
-    split_folder(f'spectrograms/{label}', 'spectrograms', splits=(0.7,0.2,0.1))
+    split_folder(f'spectrograms/{label}', 'spectrograms', splits=(0.8,0.1,0.1))

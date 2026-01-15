@@ -8,18 +8,13 @@ batch_size = 16
 
 train_ds  = tf.keras.preprocessing.image_dataset_from_directory(
   "../spectrograms/train",
-  # validation_split=0.3,
-  # subset="training",
-  # seed=42,
   image_size=(img_height, img_width),
-  batch_size=batch_size
+  batch_size=batch_size,
+  shuffle=True
 )
 
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
   "../spectrograms/val",
-  # validation_split=0.3,
-  # subset="validation",
-  # seed=42,
   image_size=(img_height, img_width),
   batch_size=batch_size
 )
@@ -33,7 +28,7 @@ test_ds = tf.keras.preprocessing.image_dataset_from_directory(
 
 model = models.Sequential([
     layers.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
-    
+
     layers.Conv2D(32, (3, 3), activation='relu'),
     layers.MaxPooling2D(2,2),
 
@@ -69,6 +64,7 @@ plt.plot(history.history['accuracy'], label='train accuracy')
 plt.plot(history.history['val_accuracy'], label='validation accuracy')
 plt.legend()
 plt.show()
+plt.savefig("../plots/accuracy_plot.png")
 
 loss, accuracy = model.evaluate(val_ds)
 print(f"Validation accuracy: {accuracy:.4f}")

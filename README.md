@@ -3,7 +3,7 @@
 A machine learning pipeline that distinguishes between human speech and AI-generated audio. This project leverages computer vision techniques by converting audio waveforms into Mel Spectrograms and analyzing them with a Convolutional Neural Network (CNN).
 
 <p align="center">
-  <img src="spectrograms/real/blues.00039.png" alt="Mel Spectrogram Sample" width="45%" />
+  <img src="sample_spectrogram.png" alt="Mel Spectrogram Sample" width="45%" />
   <img src="plots/training_accuracy.png" alt="Training Accuracy Plot" width="45%" />
 </p>
 
